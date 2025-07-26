@@ -12,8 +12,9 @@ const app = express();
 const server = http.createServer(app);
 
 // Initialize socket.io
+const allowedOrigins = ['https://quickchat-bwru.vercel.app','http://localhost:5173'];
 export const io = new Server(server, {
-    cors: { origin: "*" }
+    cors: { origin: allowedOrigins }
 })
 
 // Store online users as an object: userId : socketId
@@ -39,7 +40,6 @@ io.on("connection", (socket) => {
 
 // Middleware Setup
 app.use(express.json({ limit: "4mb" }));
-const allowedOrigins = ['https://quickchat-bwru.vercel.app','http://localhost:5173'];
  app.use(cors({
      origin: allowedOrigins,
      credentials: true, // if you need cookies/auth
