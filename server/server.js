@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
 
 // Middleware Setup
 app.use(express.json({ limit: "4mb" }));
-const allowedOrigins = ['https://imagify-1-a41y.onrender.com','http://localhost:5173'];
+const allowedOrigins = ['https://quickchat-bwru.vercel.app','http://localhost:5173'];
  app.use(cors({
      origin: allowedOrigins,
      credentials: true, // if you need cookies/auth
